@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=8
+#PBS -l walltime=00:20:00
+
+root_dir=/home/rcf-proj/ess/csul/image_benchmark
+profile_dir=${root_dir}/profiling
+benchmark_dir=${root_dir}/benchmarks
+
+source ${root_dir}/setup/env.sh
+
+python -m cProfile -o ${profile_dir}/read_db.profile ${benchmark_dir}/runtask_read_db.py
+
